@@ -1,0 +1,77 @@
+EJERCICIO ENTREGABLE 1: CREACIÓN DE ESTADOS DE BELL
+Obtén circuitos para los estados de Bell |β01⟩, | β10⟩,  | β11⟩, siguiendo las instrucciones disponibles en el notebook Puertas cuánticas:
+
+# |𝛽_01⟩=(𝐼⊗𝑋¹𝑍⁰)|𝛽_00⟩ = (𝐼⊗𝑋)|𝛽_00⟩
+qc = QuantumCircuit(2)
+
+# Aplica las puertas para obtener |𝛽_00⟩
+qc.h(0)
+qc.cx(0,1)
+
+# Aplica la puerta X al cúbit que corrresponda
+qc.x(1)
+
+display(qc.draw('mpl'))
+
+obten_estado(qc, "|\\beta_{01}\\rangle = ")
+
+
+# |𝛽_01⟩=(𝐼⊗𝑋⁰𝑍¹)|𝛽_00⟩ = (𝐼⊗𝑍)|𝛽_00⟩
+qc = QuantumCircuit(2)
+
+# Aplica las puertas para obtener |𝛽_00⟩
+qc.h(0)
+qc.cx(0, 1)
+
+# Aplica la otra puerta
+qc.z(0)
+
+display(qc.draw('mpl'))
+
+obten_estado(qc, "|\\beta_{10}\\rangle = ")
+
+
+# |𝛽_01⟩=(𝐼⊗𝑋¹𝑍¹)|𝛽_00⟩ = (𝐼⊗𝑋𝑍)|𝛽_00⟩
+qc = QuantumCircuit(2)
+
+
+# Aplica las puertas para obtener |𝛽_00⟩
+qc.h(0)
+qc.cx(0, 1)
+
+# Aplica las otras puertas
+qc.x(1)
+qc.z(1)
+
+display(qc.draw('mpl'))
+
+obten_estado(qc, "|\\beta_{10}\\rangle = ")
+
+
+
+EJERCICIO ENTREGABLE 2: Controlled-Z
+Crea un circuito que obtenga el siguiente estado: |𝜓⟩=1/2(|00⟩+|01⟩−|10⟩+|11⟩), siguiendo las instrucciones disponibles en el notebook Puertas cuánticas
+
+
+n = 2
+qc = QuantumCircuit(n)
+
+# Pon los cúbits en superposición
+# para obtener el estado |𝜓⟩=1/2(|00⟩+|01⟩+|10⟩+|11⟩)
+qc.h(0)
+qc.h(1)
+
+# La puerta C-Z cambia el signo del estado |11>
+# Aplicamos la puerta C-Z para obtener
+# el estado |𝜓⟩=1/2(|00⟩+|01⟩+|10⟩-|11⟩)
+qc.cz(0,1)
+
+# Aplicamos una puerta a q0 y para obtener
+# |𝜓⟩=1/2(|01⟩+|00⟩+|11⟩-|10⟩)
+qc.x(0)
+
+
+display(qc.draw('mpl'))
+
+obten_estado(qc, "|\psi\\rangle = ")
+
