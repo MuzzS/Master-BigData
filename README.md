@@ -3,4 +3,4 @@ Este repositorio es un cúmulo de los trabajos realizados durante el Master de B
 
 Softwares utilizados:
 
-Python, SQL, MQL, 
+Python, SQL, R
